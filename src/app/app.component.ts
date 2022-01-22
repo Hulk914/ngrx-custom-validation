@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { formGroupSelector } from './store/app.selector';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'ngrx-demo';
+export class AppComponent implements OnInit {
+  formGroupState$: Observable<any>;
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    this.formGroupState$ = this.store.select(formGroupSelector);
+    this.formGroupState$.subscribe((form) => console.log(form));
+  }
 }
