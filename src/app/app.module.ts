@@ -9,9 +9,10 @@ import { NgrxFormsModule } from 'ngrx-forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { CustomInputComponent } from './store/custom-input/custom-input.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CustomInputComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -1,12 +1,10 @@
 <div class="container">
   <ng-container *ngIf="formGroupState$ | async as formState">
     <form novalidate [ngrxFormState]="formState">
-      <input
-        [ngrxFormControlState]="formState.controls.inputString"
-        type="text"
-      />
+      <input [ngrxFormControlState]="formState.controls.inputString" type="text" />
+      <div>valus is {{ formState.value.inputString }}</div>
+      <div>error is {{ formState.errors._inputString | json }}</div>
+      <app-custom-input suffix="%" [ngrxFormControlState]="formState.controls.percentageInput"></app-custom-input>
     </form>
-    <div>valus is {{ formState.value.inputString }}</div>
-    <div>error is {{ formState.errors._inputString | json }}</div>
   </ng-container>
 </div>

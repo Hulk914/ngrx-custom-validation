@@ -13,12 +13,14 @@ import { customValidator } from './app.validators';
 
 export interface CustomFormType {
   inputString: string;
+  percentageInput: string;
 }
 
 const FORM_ID = '[APP] FORM ID';
 
 const initialFormState = createFormGroupState<CustomFormType>(FORM_ID, {
   inputString: 'default',
+  percentageInput: '100'
 });
 
 const validationReducer = updateGroup<CustomFormType>({
